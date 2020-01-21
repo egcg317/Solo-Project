@@ -1,0 +1,27 @@
+{
+  "name": "Solo-Project",
+  "version": "1.0.0",
+  "description": "recipe tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egcg317/Solo-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egcg317/Solo-Project/issues"
+  },
+  "homepage": "https://github.com/egcg317/Solo-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
