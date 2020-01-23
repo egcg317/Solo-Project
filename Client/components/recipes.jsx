@@ -7,6 +7,7 @@ class Recipes extends Component {
     this.state = {
       recipes: [],
     };
+    this.postRequest = this.postRequest.bind(this)
   }
 
   componentDidMount() {
@@ -19,43 +20,36 @@ class Recipes extends Component {
       });
   }
 
-  render() {
-    const postRequest = () => {
-      
-      const name = document.getElementById('recipeName').value;
-      const cooktime = document.getElementById('cooktime').value;
-      const rating = document.getElementById('recipeRating').value;
+  postRequest() {
+    const name = document.getElementById('recipeName').value;
+    const cooktime = document.getElementById('cooktime').value;
+    const rating = document.getElementById('recipeRating').value;
 
-      const newRecipe = {
-        name,
-        cooktime,
-        rating,
-      };
-
-      // this.setState({
-      //   recipes: newRecipe,
-      // });
-
-      fetch('/api/addRecipe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newRecipe),
-      })
-
-      .then((res) => {
-        console.log(newRecipe)
-      });
-
-      fetch('/api/recipes')
-      .then((response) => {
-        return response.json();
-      })
-      .then((array) => {
-        this.setState({ recipes: array });
-      });
+    const newRecipe = {
+      name,
+      cooktime,
+      rating,
     };
+
+    fetch('/api/addRecipe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newRecipe),
+    });
+
+    fetch('/api/recipes')
+    .then((response) => {
+      console.log('on click fetch');
+      return response.json();
+    })
+    .then((array) => {
+      this.setState({ recipes: array });
+    });
+  }
+
+  render() {
 
     const recipeFeed = [];
 
@@ -64,7 +58,7 @@ class Recipes extends Component {
       const { name, cooktime, rating } = recipes[i];
       recipeFeed.push(<Recipe key={`recipe: ${i}`} name={name} time={cooktime} rating={rating} />);
     }
-    document.getElementById('addRecipe').addEventListener('click', postRequest);
+    document.getElementById('addRecipe').addEventListener('click', this.postRequest);
     
     console.log('state', recipes);
     return (
