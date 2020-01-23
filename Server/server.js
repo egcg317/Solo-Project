@@ -1,9 +1,23 @@
 const express = require('express');
 const path = require('path');
+const BodyParser = require('body-parser');
+
 const apiRouter = require('./api');
 
 const app = express();
 const port = 3000;
+
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  console.log(
+    `**FLOW TEST**
+    ${req.method}
+    ${req.body.name}`,
+  );
+  next();
+});
 
 app.use('/api', apiRouter);
 

@@ -16,4 +16,13 @@ controller.getLists = async (req, res, next) => {
   next();
 };
 
+controller.addRecipe = async (req, res, next) => {
+  const { name, cooktime, rating } = req.body;
+  const queryStr = `INSERT INTO recipes (name, cooktime, rating)
+  VALUES ('${name}', '${cooktime}', ${rating});`;
+  console.log(queryStr);
+  await db.query(queryStr);
+  next();
+}
+
 module.exports = controller;

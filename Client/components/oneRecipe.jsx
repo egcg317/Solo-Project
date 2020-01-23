@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class List extends Component {
+class oneRecipe extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,11 +11,11 @@ class List extends Component {
 
   render() {
     return (
-      <div id="list">
-        {/* <p>list works!</p> */}
+      <div className="recipe">
+        {this.props.name} {this.props.time} {this.props.rating}
       </div>
     );
   }
 }
 
-export default List;
+export default oneRecipe;
