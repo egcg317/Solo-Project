@@ -1,10 +1,73 @@
 
-* {
+body {
   font-family: sans-serif;
-  color: white;
+  color: black;
   font-size: 30px;
-  background-color: lightpink;
+  background-color: white;
   
+}
+
+#list{
+  margin-top: 20px;
+}
+
+#h2-head{
+  font-size: 35px;
+  padding-top: 20px;
+  font-weight: lighter;
+}
+
+#h3-head{
+  font-size: 17px;
+  font-style: italic;
+  position: relative;
+  top: -25px;
+  font-weight: lighter;
+}
+
+#container{
+  background-color: lightpink;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  height: 800px;
+}
+
+.recipeRow{
+  /* border: 1px solid black; */
+  padding-left: 20px;
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  text-align: left;
+}
+
+.recipe{
+  background-color: white;
+  margin: 2px;
+  width: 150px;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.recipeHead{
+  background-color: white;
+  margin: 2px;
+  font-weight: bold;
+  width: 150px;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#header{
+  text-align: center;
+  position: relative;
+  top: -22px;
+  background-color: black;
+  color: white;
+  height: 92px;
+  margin: 0;
+  padding: 0;
 }
 
 #addRecipe{

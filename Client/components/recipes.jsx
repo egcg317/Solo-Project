@@ -20,6 +20,7 @@ class Recipes extends Component {
       });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   postRequest() {
     const name = document.getElementById('recipeName').value;
     const cooktime = document.getElementById('cooktime').value;
@@ -37,20 +38,25 @@ class Recipes extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newRecipe),
-    });
-
-    fetch('/api/recipes')
+    })
     .then((response) => {
       console.log('on click fetch');
       return response.json();
-    })
-    .then((array) => {
+    }).then((array) => {
       this.setState({ recipes: array });
     });
+
+    // fetch('/api/recipes')
+    // .then((response) => {
+    //   console.log('on click fetch');
+    //   return response.json();
+    // })
+    // .then((array) => {
+    //   this.setState({ recipes: array });
+    // });
   }
 
   render() {
-
     const recipeFeed = [];
 
     const { recipes } = this.state;
@@ -59,10 +65,15 @@ class Recipes extends Component {
       recipeFeed.push(<Recipe key={`recipe: ${i}`} name={name} time={cooktime} rating={rating} />);
     }
     document.getElementById('addRecipe').addEventListener('click', this.postRequest);
-    
+
     console.log('state', recipes);
     return (
       <div id="list">
+        <div className="recipeRow">
+          <div className="recipeHead">Name:</div>
+          <div className="recipeHead">CookTime:</div>
+          <div className="recipeHead">Rating:</div>
+        </div>
         {recipeFeed}
       </div>
     );

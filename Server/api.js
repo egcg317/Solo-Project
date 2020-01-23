@@ -9,9 +9,11 @@ router.get('/recipes', controller.getRecipes,
     // console.log(res.locals);
   });
 
-router.post('/addRecipe', controller.addRecipe,
+router.post('/addRecipe',
+  controller.addRecipe,
+  controller.getRecipes,
   (req, res) => {
-    console.log('adding recipe');
+    res.status(200).json(res.locals.recipes);
     // res.status(200).json(res.locals.recipes);
   });
 

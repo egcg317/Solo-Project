@@ -11,8 +11,16 @@ class oneRecipe extends Component {
 
   render() {
     return (
-      <div className="recipe">
-        {this.props.name} {this.props.time} {this.props.rating}
+      <div className="recipeRow">
+        <div className="recipe" id="recipeName">
+          {this.props.name}
+        </div>
+        <div className="recipe" id="recipeTime">
+          {this.props.time} 
+        </div>
+        <div className="recipe" id="recipeRating">
+          {this.props.rating}
+        </div>
       </div>
     );
   }
