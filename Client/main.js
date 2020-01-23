@@ -7,4 +7,3 @@ import App from './app.jsx';
 // const element = <h1>Hello, world</h1>;
 
 ReactDOM.render(<App />, document.getElementById('root'));
-// ReactDOM.render(<App />, document.getElementById('#root'));

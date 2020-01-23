@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import Main from './mainContainer.jsx';
 
-class App extends Component {
+class List extends Component {
   constructor() {
     super();
     this.state = {
+      // eslint-disable-next-line react/no-unused-state
       data: 'very good data',
     };
   }
 
   render() {
     return (
-      <div id="app">
-        <Main />
+      <div id="list">
+        <p>list works!</p>
       </div>
     );
   }
 }
 
-export default App;
+export default List;
